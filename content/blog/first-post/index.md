@@ -1,14 +1,15 @@
 ---
-title: "First Post"
-date: 2018-11-13T17:05:02+11:00
-draft: true
-type: "post"
-author: "Person Namerson"
-category: "Unfiled"
-standfirst: "Aliquam tristique quis nunc vulputate dignissim. Nulla facilisi. Suspendisse ornare, augue at faucibus feugiat, tortor diam finibus diam, vitae maximus arcu turpis quis ligula. Donec in nulla non velit porta consectetur. Cras pharetra vestibulum ullamcorper."
+title: First Post Now with Changes
+date: 2018-11-13 06:05:02 +0000
+type: post
+author: Peter Cossey
+category:
+- Unfiled
+- SEO
+standfirst: A proper standfirst wouldn't be made of lorem ipsum.
 resources:
 - name: hero
   src: images/hero.jpg
----
 
-Sweet sweet content.
+---
+Sweet sweet content, with extra words.
