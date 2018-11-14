@@ -4,8 +4,8 @@
 {{ define "main" }}
     <h1>{{ .Title }}</h1>
     <pre>
-        {{ with .Resources.GetMatch "hero" }}
-            <img src="{{ .Permalink }}"/>
+        {{ with .Params.featuredImage }}
+            <img src="{{ . }}"/>
         {{ end }}
     </pre>
     {{ .Content }}
