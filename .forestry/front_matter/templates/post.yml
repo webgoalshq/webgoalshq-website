@@ -1,8 +1,0 @@
----
-label: Post
-hide_body: false
-is_partial: false
-fields:
-- type: text
-  name: some_label
-  label: Some label
