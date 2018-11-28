@@ -17,7 +17,7 @@ fields:
   label: Type
   type: text
   hidden: false
-  default: ''
+  default: 'post'
 - name: author
   label: Author
   type: text
@@ -29,17 +29,17 @@ fields:
   hidden: false
   default: ''
 - name: featuredImage
-  label: Featuredimage
+  label: "Featured image"
   type: file
   hidden: false
   default: ''
 - name: thumbnailImage
-  label: Thumbnailimage
-  type: text
+  label: "Thumbnail image"
+  type: file
   hidden: false
   default: ''
 - name: standfirst
-  label: Standfirst
+  label: "Stand first"
   type: textarea
   hidden: false
   default: ''
