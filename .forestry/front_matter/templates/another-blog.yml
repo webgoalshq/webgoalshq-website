@@ -1,0 +1,47 @@
+---
+label: Post
+hide_body: false
+is_partial: false
+fields:
+- name: title
+  label: Title
+  type: text
+  hidden: false
+  default: ''
+- name: date
+  label: Date
+  type: datetime
+  hidden: false
+  default: ''
+- name: type
+  label: Type
+  type: text
+  hidden: false
+  default: ''
+- name: author
+  label: Author
+  type: text
+  hidden: false
+  default: ''
+- name: category
+  label: Category
+  type: tag_list
+  hidden: false
+  default: ''
+- name: featuredImage
+  label: Featuredimage
+  type: file
+  hidden: false
+  default: ''
+- name: thumbnailImage
+  label: Thumbnailimage
+  type: text
+  hidden: false
+  default: ''
+- name: standfirst
+  label: Standfirst
+  type: textarea
+  hidden: false
+  default: ''
+pages:
+- content/blog/this-is-my-second-blog-post.md
