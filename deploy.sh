@@ -25,8 +25,16 @@ if [ -z $DESTINATION ]; then
 fi
 
 if [ -x "$(command -v aws)" ]; then
-    # need to prompt here.
-    echo 'TBD'
+    # need a prompt here for confirmation
+
+    # Delete the public folder if it exists so we create a fresh build.
+    if [ -d $PROJECT_DIR/public ]; then
+        echo
+        echo "  Site folder /public found. Syncing to s3://$DESTINATION"
+        echo "  ..."
+        aws s3 sync $PROJECT_DIR/public/ s3://$DESTINATION
+    fi
+
 else
     echo 'Cannot find AWS CLI, exiting'
     exit 1
