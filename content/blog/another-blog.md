@@ -10,7 +10,6 @@ standfirst: Aliquam tristique quis nunc vulputate dignissim. Nulla facilisi. Sus
   ornare, augue at faucibus feugiat, tortor diam finibus diam, vitae maximus arcu
   turpis quis ligula. Donec in nulla non velit porta consectetur. Cras pharetra vestibulum
   ullamcorper.
-draft: true
 
 ---
 Sweet sweet content
@@ -18,3 +17,5 @@ Sweet sweet content
 ![This is just a test image](/uploads/hero.jpg)
 
 This is a blog post.
+
+testing Codeship CI and deploy etc.

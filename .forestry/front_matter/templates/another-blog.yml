@@ -17,7 +17,7 @@ fields:
   label: Type
   type: text
   hidden: false
-  default: post
+  default: ''
 - name: author
   label: Author
   type: text
@@ -29,17 +29,19 @@ fields:
   hidden: false
   default: ''
 - name: featuredImage
-  label: Featured image
+  label: Featuredimage
   type: file
   hidden: false
   default: ''
 - name: thumbnailImage
-  label: Thumbnail image
-  type: file
+  label: Thumbnailimage
+  type: text
   hidden: false
   default: ''
 - name: standfirst
-  label: Stand first
+  label: Standfirst
   type: textarea
   hidden: false
   default: ''
+pages:
+- content/blog/this-is-my-second-blog-post.md
