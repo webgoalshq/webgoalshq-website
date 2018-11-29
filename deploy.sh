@@ -10,6 +10,7 @@ echo "  +====WEB GOALS HQ====+"
 echo "  +====================+"
 echo
 echo "  This deploy script will look for a '/public' folder in this project and then sync the files to an S3 bucket."
+echo
 echo "  The script has the following dependencies:"
 echo
 echo "- AWS CLI tool setup and configured with correct access to Web Goals HQ S3 buckets"
