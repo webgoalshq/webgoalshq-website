@@ -32,6 +32,9 @@ if [ -x "$(command -v hugo)" ]; then
         echo "  Now running hugo command to build site..."
         hugo -s $PROJECT_DIR
 
+        # remove .gitkeep from public folder (I'm not sure why it even exists)
+        rm $PROJECT_DIR/public/.gitkeep
+
     else
         echo "When we run the 'hugo version' it says $VERSION but this script only supports $HUGO_VERSION."
         exit 1
