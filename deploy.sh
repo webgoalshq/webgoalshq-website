@@ -33,7 +33,7 @@ if [ -x "$(command -v aws)" ]; then
         echo
         echo "  Site folder /public found. Syncing to s3://$DESTINATION"
         echo "  ..."
-        aws s3 sync $PROJECT_DIR/public/ s3://$DESTINATION
+        aws s3 sync $PROJECT_DIR/public/ s3://$DESTINATION --delete
     fi
 
 else
