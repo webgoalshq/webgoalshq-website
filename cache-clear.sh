@@ -17,6 +17,7 @@ echo "  The script has the following dependencies:"
 echo
 echo "- AWS CLI tool setup and configured with correct access to Web Goals HQ CloudFront distributions."
 echo "- An environment variable WEBGOALSHQ_CLOUDFRONT with the name of the target S3 bucket"
+echo "- An environment variable WEBGOALSHQ_DRAFT_CLOUDFRONT with the name of the target S3 bucket"
 echo
 
 # Set CloudFront target based on draft flag.

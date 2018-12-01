@@ -3,6 +3,7 @@ set -e
 
 PROJECT_DIR=$(cd `dirname $0` && pwd)
 HUGO_VERSION="v0.49"
+DRAFT_FLAG=$1
 
 echo
 echo "  +====================+"
@@ -34,6 +35,16 @@ if [ -x "$(command -v hugo)" ]; then
 
         # remove .gitkeep from public folder (I'm not sure why it even exists)
         rm $PROJECT_DIR/public/.gitkeep
+
+        # if it's a draft build add a robots.txt.
+        if [ "$DRAFT_FLAG" == "draft" ]; then
+            echo
+            echo "  Adding a robots.txt file into /public for draft site."
+            echo
+            
+            ROBOTS=$'User-agent: *\nDisallow: /'
+            echo "$ROBOTS" > $PROJECT_DIR/public/robots.txt
+        fi
 
     else
         echo "When we run the 'hugo version' it says $VERSION but this script only supports $HUGO_VERSION."

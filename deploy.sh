@@ -21,37 +21,12 @@ echo "- An environment variable WEBGOALSHQ_S3 with the name of the target S3 buc
 echo "- An environment variable WEBGOALSHQ_DRAFT_S3 with the name of the test S3 bucket."
 echo
 
-# Set S3 target based on draft flag.
-
-if [ "$DRAFT_FLAG" == "draft" ]; then
-    if [ -z $DESTINATION_DRAFT ]; then
-        echo "  The environment variable WEBGOALSHQ_DRAFT_S3 doesn't have a value. Set one with:"
-        echo
-        echo "     export WEBGOALSHQ_DRAFT_S3=foo"
-        echo
-        exit 1
-    else
-        echo "  Using WEBGOALSHQ_DRAFT_S3 environment variable for S3 target."
-        TARGET=$DESTINATION_DRAFT
-    fi
-else
-
-    if [ -z $DESTINATION ]; then
-        echo "  The environment variable WEBGOALSHQ_S3 doesn't have a value. Set one with:"
-        echo
-        echo "     export WEBGOALSHQ_S3=foo"
-        echo
-        exit 1
-    else
-        echo "  Using WEBGOALSHQ_S3 environment variable for S3 target."
-        TARGET=$DESTINATION
-    fi
-fi
-
 if [ -x "$(command -v aws)" ]; then
-    # need a prompt here for confirmation
 
-    # Delete the public folder if it exists so we create a fresh build.
+    echo "  AWS CLI found..."
+    echo
+
+    # check that the build directory is there.
     if [ -d $PROJECT_DIR/public ]; then
         echo
         echo "  Site folder /public found. Syncing to s3://$TARGET"
@@ -62,4 +37,51 @@ if [ -x "$(command -v aws)" ]; then
 else
     echo 'Cannot find AWS CLI, exiting'
     exit 1
+fi
+
+# Set S3 target based on draft flag.
+
+if [ "$DRAFT_FLAG" == "draft" ]; then
+    # Build and deploy for draft
+    if [ -z $DESTINATION_DRAFT ]; then
+        echo "  The environment variable WEBGOALSHQ_DRAFT_S3 doesn't have a value. Set one with:"
+        echo
+        echo "     export WEBGOALSHQ_DRAFT_S3=foo"
+        echo
+        exit 1
+    else
+        TARGET=$DESTINATION_DRAFT
+        
+        echo "  Using WEBGOALSHQ_DRAFT_S3 environment variable for S3 target."
+        echo
+        echo "  Building fresh site with 'build.sh draft'"
+        echo
+
+        ./build draft
+        aws s3 sync $PROJECT_DIR/public/ s3://$TARGET --delete
+
+        echo "  All finished!"
+        echo
+    fi
+else
+    # Build and deploy for prod.
+    if [ -z $DESTINATION ]; then
+        echo "  The environment variable WEBGOALSHQ_S3 doesn't have a value. Set one with:"
+        echo
+        echo "     export WEBGOALSHQ_S3=foo"
+        echo
+        exit 1
+    else
+        TARGET=$DESTINATION
+        
+        echo "  Using WEBGOALSHQ_S3 environment variable for S3 target."
+        echo
+        echo "  Building fresh site with 'build.sh'"
+
+        ./build
+        aws s3 sync $PROJECT_DIR/public/ s3://$TARGET --delete
+
+        echo "  All finished!"
+        echo
+    fi
 fi
