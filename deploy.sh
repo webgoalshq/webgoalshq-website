@@ -9,10 +9,10 @@ TARGET=""
 
 echo
 echo "  +====================+"
-echo "  +====WEB GOALS HQ====+"
+echo "  +====== DEPLOY ======+"
 echo "  +====================+"
 echo
-echo "  This deploy script will look for a '/public' folder in this project and then sync the files to an S3 bucket."
+echo "  This deploy script will run the build.sh script in this project and then sync the files to an S3 bucket."
 echo
 echo "  The script has the following dependencies:"
 echo
@@ -23,16 +23,8 @@ echo
 
 if [ -x "$(command -v aws)" ]; then
 
-    echo "  AWS CLI found..."
+    echo "  AWS CLI found... moving forward."
     echo
-
-    # check that the build directory is there.
-    if [ -d $PROJECT_DIR/public ]; then
-        echo
-        echo "  Site folder /public found. Syncing to s3://$TARGET"
-        echo "  ..."
-        aws s3 sync $PROJECT_DIR/public/ s3://$TARGET --delete
-    fi
 
 else
     echo 'Cannot find AWS CLI, exiting'
@@ -57,7 +49,7 @@ if [ "$DRAFT_FLAG" == "draft" ]; then
         echo "  Building fresh site with 'build.sh draft'"
         echo
 
-        ./build draft
+        $PROJECT_DIR/build.sh draft
         aws s3 sync $PROJECT_DIR/public/ s3://$TARGET --delete
 
         echo "  All finished!"
@@ -78,7 +70,7 @@ else
         echo
         echo "  Building fresh site with 'build.sh'"
 
-        ./build
+        $PROJECT_DIR/build.sh
         aws s3 sync $PROJECT_DIR/public/ s3://$TARGET --delete
 
         echo "  All finished!"

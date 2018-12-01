@@ -7,7 +7,7 @@ DRAFT_FLAG=$1
 
 echo
 echo "  +====================+"
-echo "  +====WEB GOALS HQ====+"
+echo "  +======= BUILD ======+"
 echo "  +====================+"
 echo
 
@@ -41,7 +41,7 @@ if [ -x "$(command -v hugo)" ]; then
             echo
             echo "  Adding a robots.txt file into /public for draft site."
             echo
-            
+
             ROBOTS=$'User-agent: *\nDisallow: /'
             echo "$ROBOTS" > $PROJECT_DIR/public/robots.txt
         fi
