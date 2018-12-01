@@ -43,3 +43,5 @@ fields:
   type: textarea
   hidden: false
   default: ''
+pages:
+- content/blog/my-post-for-draft-site.md
