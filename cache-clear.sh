@@ -42,7 +42,7 @@ else
         exit 1
     else
         echo "  Using WEBGOALSHQ_CLOUDFRONT environment variable for CloudFront target."
-        TARGET=$DESTINATION
+        TARGET=$DISTRIBUTION
     fi
 fi
 
