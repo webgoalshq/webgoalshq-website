@@ -28,22 +28,30 @@ if [ -x "$(command -v hugo)" ]; then
             rm -rf $PROJECT_DIR/public
         fi
 
-        #echo build project
-        echo
-        echo "  Now running hugo command to build site..."
-        hugo -s $PROJECT_DIR
-
-        # remove .gitkeep from public folder (I'm not sure why it even exists)
-        rm $PROJECT_DIR/public/.gitkeep
-
         # if it's a draft build add a robots.txt.
         if [ "$DRAFT_FLAG" == "draft" ]; then
+            #echo build project
+            echo
+            echo "  Now running hugo command to build site..."
+            hugo -s $PROJECT_DIR -b "https://draft.webgoalshq.com/"
+
+            # remove .gitkeep from public folder (I'm not sure why it even exists)
+            rm $PROJECT_DIR/public/.gitkeep
+
             echo
             echo "  Adding a robots.txt file into /public for draft site."
             echo
 
             ROBOTS=$'User-agent: *\nDisallow: /'
             echo "$ROBOTS" > $PROJECT_DIR/public/robots.txt
+        else
+            #echo build project
+            echo
+            echo "  Now running hugo command to build site..."
+            hugo -s $PROJECT_DIR
+
+            # remove .gitkeep from public folder (I'm not sure why it even exists)
+            rm $PROJECT_DIR/public/.gitkeep
         fi
 
     else
