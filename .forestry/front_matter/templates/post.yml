@@ -45,3 +45,4 @@ fields:
   default: ''
 pages:
 - content/blog/my-post-for-draft-site.md
+- content/blog/it-s-tuesday.md
