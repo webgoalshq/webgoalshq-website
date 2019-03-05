@@ -1,0 +1,9 @@
+/* import base styles */
+@import './base/normalize.css';
+@import './base/colors.css';
+@import './base/display.css';
+@import './base/typography.css';
+@import './base/skins.css';
+
+/* import components */
+@import './components/wordmark.css';

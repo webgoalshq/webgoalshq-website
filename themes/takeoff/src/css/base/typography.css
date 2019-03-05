@@ -1,0 +1,28 @@
+/* =============================================================================
+// BASE TYPOGRAPHY
+// ============================================================================= */
+
+body {
+  color: var(--dorado);
+  font-size: 1rem;
+  line-height: 1.4;
+  font-family: 'Karla', sans-serif;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--cocoa-brown);
+}
+
+/* font scale */
+.f1 { font-size: 2rem; }
+.f2 { font-size: 1.5rem; }
+.f3 { font-size: 1.3125rem; }
+.f4 { font-size: 1.125rem; }
+.f5 { font-size: 1rem; }
+.f6 { font-size: 0.875rem; }

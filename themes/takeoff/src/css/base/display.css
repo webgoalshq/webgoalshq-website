@@ -1,0 +1,12 @@
+.screen-reader-only, .visually-hidden {
+    height: 1px;
+    left: -999em !important;
+    overflow: hidden;
+    position: absolute;
+    top: auto !important;
+    width: 1px;
+}
+
+.dt {
+    display: table;
+}

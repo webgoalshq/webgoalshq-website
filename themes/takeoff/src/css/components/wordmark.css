@@ -1,0 +1,23 @@
+a.wordmark {
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    height: 66px;
+    width: 238px;
+}
+a.wordmark:hover {
+    text-decoration: none;
+}
+a.wordmark img {
+    width: 52px;
+    height: auto;
+    padding-right: 12px;
+}
+a.wordmark h1 {
+    color: var(--burnt-sienna);
+    margin: 0;
+    font-size: 1.625rem;
+    bottom: 11%;
+    position: relative;
+    font-weight: bold;
+}

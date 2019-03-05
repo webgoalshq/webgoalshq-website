@@ -1,0 +1,16 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel watch css/styles.css js/main.js -d ../static --no-hmr"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.4.10",
+    "postcss-modules": "^1.4.1"
+  }
+}

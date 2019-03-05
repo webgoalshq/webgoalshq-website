@@ -1,0 +1,17 @@
+/* Skins */
+
+.bg-pearl {
+    background-color: var(--pearl);
+}
+
+.bg-concrete {
+    background-color: var(--concrete);
+}
+
+.bg-ice {
+    background-color: var(--jagged-ice);
+}
+
+.sienna {
+    color: var(--burnt-sienna);
+}
